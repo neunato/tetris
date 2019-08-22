@@ -60,7 +60,7 @@ with o_game {
     if keyboard_check_pressed(ord("A")) {
         rotate(-1)
     }
-    if keyboard_check_pressed(ord("D")) {
+    else if keyboard_check_pressed(ord("D")) {
         rotate(1)
     }
 }

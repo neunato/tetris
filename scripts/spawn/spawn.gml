@@ -8,23 +8,25 @@ if delay > 0 {
     return
 }
 
-var shapes = o_game.shapes
+var tetrominoes = o_game.tetrominoes
 var cols = o_game.cols
 
 with o_player {
     // get random tetromino
-    var r = irandom(len(shapes) - 1)
-    var shape = shapes[r]
-    var n = len(shape) - 1
+    var r = irandom(len(tetrominoes) - 1)
+    rotations = tetrominoes[r]
+    rotations_at = 0
+    tetromino = rotations[0]
 
     // centre it
+    var n = len(tetromino)
     var offset = 0
-    for (var r=0; r<=n; r++) {
-        var c = n
-        while c >= 0 and get(shape, r, c) == 0 {
-            c--
+    for (var r=0; r<n; r++) {
+        var c = 0
+        while (c < n and get(tetromino, r, c) == 0) {
+            c++
         }
-        if c == -1 {
+        if c == n {
             offset++
         }
         else {
@@ -36,22 +38,12 @@ with o_player {
     position[1] = floor((cols - n) / 2)
 
     // create tiles
-    tetromino = array_create(n + 1)
     var colour = choose(c_aqua, c_fuchsia, c_dkgray, c_olive)
-    for (var r=n; r>=0; r--) {
-        tetromino[r] = array_create(n + 1)
-        for (var c=n; c>=0; c--) {
-            if get(shape, r, c) == 1 {
-                var xx = position[1] * sprite_width
-                var yy = position[0] * sprite_height
-                var tile = instance_create_layer(xx, yy, "Instances", o_tile)
-                tile.image_blend = colour
-                set(tetromino, r, c, tile)
-            }
-            else {
-                set(tetromino, r, c, noone)
-            }
-        }
+    tiles = array_create(4)
+    for (var i=0; i<4; i++) {
+        var tile = instance_create_layer(0, 0, "Instances", o_tile)
+        tile.image_blend = colour
+        tiles[i] = tile
     }
 
     if collides(tetromino, position) {

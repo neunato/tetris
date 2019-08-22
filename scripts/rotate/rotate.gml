@@ -6,11 +6,14 @@ if dir != 1 and dir != -1 {
 }
 
 with o_player {
-    var rotated = rotate_matrix(tetromino, dir)
+    var n = len(rotations)
+    var at = (rotations_at + dir + n) % n
+    var rotated = rotations[at]
     if collides(rotated, position) {
         return
     }
 
     tetromino = rotated
+    rotations_at = at
     redraw_player()
 }

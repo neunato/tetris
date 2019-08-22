@@ -4,17 +4,19 @@ var rows = o_game.rows
 
 with o_player {
     var lines = []
-    var at = 0
+    var lines_at = 0
+    var tiles_at = 0
     var n = len(tetromino)
     for (var i=0; i<n; i++) {
         var r = i + position[0]
 
-        // copy tiles to map
+        // copy row to map
         for (var j=0; j<n; j++) {
             var c = j + position[1]
-            var tile = get(tetromino, i, j)
-            if tile != noone {
+            if get(tetromino, i, j) == 1 {
+                var tile = tiles[tiles_at]
                 set(map, r, c, tile)
+                tiles_at++
             }
         }
 
@@ -26,12 +28,10 @@ with o_player {
                 }
             }
             if c == cols {
-                lines[at] = r
-                at++
+                lines[lines_at] = r
+                lines_at++
             }   
         }
     }
-
-    tetromino = undefined
     return lines
 }

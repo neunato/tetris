@@ -1,11 +1,15 @@
 
 with o_player {
-    var n = len(tetromino) - 1
-    for (var r=n; r>=0; r--) {
-        for (var c=n; c>=0; c--) {
-            var tile = get(tetromino, r, c)
-            if tile != noone {
-                move_sprite_to(tile, position[0] + r, position[1] + c)
+    var at = 0
+    var n = len(tetromino)
+    for (var r=0; r<n; r++) {
+        for (var c=0; c<n; c++) {
+            if get(tetromino, r, c) == 1 {
+                var xx = position[0] + r
+                var yy = position[1] + c
+                var tile = tiles[at]
+                move_sprite_to(tile, xx, yy)
+                at++
             }
         }
     }

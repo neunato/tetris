@@ -9,7 +9,7 @@ var cols = o_game.cols
 var n = len(tetromino)
 for (var i=0; i<n; i++) {
     for (var j=0; j<n; j++) {
-        if get(tetromino, i, j) == noone {
+        if get(tetromino, i, j) == 0 {
             continue
         }
         var r = i + position[0]
