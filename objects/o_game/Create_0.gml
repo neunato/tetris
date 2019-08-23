@@ -1,6 +1,6 @@
 rows = 15
 cols = 10
-delay_gravity = 100
+delay_gravity = 20
 delay_automove = [16, 6]
 delay_autodown = [3, 2]
 delay_spawn = 10
