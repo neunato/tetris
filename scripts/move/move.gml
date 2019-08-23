@@ -8,7 +8,7 @@ if dir != 1 and dir != -1 {
 with o_player {
     var pos = [position[0], position[1] + dir]
     if collides(tetromino, pos) {
-        o_game.timer_das = 1
+        o_game.timer_shift = 1
         return
     }
 

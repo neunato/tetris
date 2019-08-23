@@ -12,3 +12,7 @@ with o_player {
         redraw_player()
     }
 }
+
+with o_game {
+    timer_gravity = delay_gravity
+}

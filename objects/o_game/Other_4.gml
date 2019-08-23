@@ -1,2 +1,3 @@
-spawn(delay_opening)
+timer_freeze = delay_freeze
+spawn(0)
 
