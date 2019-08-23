@@ -1,0 +1,1 @@
+colour_index = 0             // o_game.tetrominoes[random].colour_index

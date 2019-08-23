@@ -3,6 +3,6 @@
 /// @param c
 var tile = argument0, r = argument1, c = argument2;
 with tile {
-    x = c * sprite_width
+    x = c * sprite_height
     y = r * sprite_height
 }

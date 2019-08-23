@@ -14,7 +14,9 @@ var cols = o_game.cols
 with o_player {
     // get random tetromino
     var r = irandom(len(tetrominoes) - 1)
-    rotations = tetrominoes[r]
+    var tmp = tetrominoes[r]
+    var colour_index = tmp[0]
+    rotations = tmp[1]
     rotations_at = 0
     tetromino = rotations[0]
 
@@ -42,8 +44,8 @@ with o_player {
     tiles = array_create(4)
     for (var i=0; i<4; i++) {
         var tile = instance_create_layer(0, 0, "Instances", o_tile)
-        tile.image_blend = colour
         tiles[i] = tile
+        tile.colour_index = colour_index
     }
 
     if collides(tetromino, position) {
