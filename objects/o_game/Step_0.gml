@@ -65,8 +65,9 @@ else {
 if keyboard_check_pressed(vk_down) {
     timer_drop = delay_drop[0]
     timer_freeze = 0
+    allow_autodrop = true
 }
-else if keyboard_check(vk_down) {
+else if keyboard_check(vk_down) and allow_autodrop {
     timer_drop--
     if timer_drop == 0 {
         timer_drop = delay_drop[1]

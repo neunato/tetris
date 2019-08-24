@@ -33,5 +33,8 @@ with o_player {
             }   
         }
     }
+
+    o_game.allow_autodrop = false
+
     return lines
 }

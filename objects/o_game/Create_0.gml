@@ -6,6 +6,7 @@ lines = 0
 lines_in_level = min(level+1, max(10, level-5)) * 10
 points = 0
 points_table = [40, 100, 300, 1200]   // points_table[lines cleared - 1] * (level + 1)
+allow_autodrop = true
 
 gravity_per_level = [48, 43, 38, 33, 28, 23, 18, 13, 8, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1]
 var l = min(level, len(gravity_per_level)-1)
