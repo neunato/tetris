@@ -1,1 +1,1 @@
-colour_index = 0             // o_game.tetrominoes[random].colour_index
+tile_type = undefined             // o_game.tetrominoes[random].tile_type
