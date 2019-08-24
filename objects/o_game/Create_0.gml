@@ -1,7 +1,7 @@
 rows = 15
 cols = 10
 delay_freeze = 96
-delay_gravity = 20
+delay_gravity = 10
 delay_shift = [16, 6]             // the piece moves immediately, and again every 6 frames after an initial delay of 16
 delay_drop = [3, 2]               // the piece moves every 2 frames after an initial delay of 3
 delay_spawn = 10
@@ -84,3 +84,45 @@ tetrominoes = [
           [0,0,1,0],
           [0,0,1,0]]]]
 ]
+
+// the initial rotation's empty lines (on top and bottom) are checked for when
+// spawning and drawing the next piece, so we cache the computation
+empty_lines_cache = ds_map_create()
+var n = len(tetrominoes)
+var tmp
+for (var i=0; i<n; i++) {
+    tmp = tetrominoes[i]
+    tmp = tmp[1]
+    var tetromino = tmp[0]
+
+    var empty_top = 0
+    var empty_bottom = 0
+    var m = len(tetromino)
+    for (var r=0; r<m; r++) {
+        var c = 0
+        while (c < m and get(tetromino, r, c) == 0) {
+            c++
+        }
+        if c == m {
+            empty_top++
+        }
+        else {
+            break
+        }
+    }
+
+    for (var r=m-1; r>=0; r--) {
+        var c = 0
+        while (c < m and get(tetromino, r, c) == 0) {
+            c++
+        }
+        if c == m {
+            empty_bottom++
+        }
+        else {
+            break
+        }
+    }
+
+    empty_lines_cache[? tetromino] = [empty_top, empty_bottom]
+}

@@ -1,8 +1,8 @@
 {
-    "id": "e01bbd78-dee7-7c59-d373-857457c1978f",
+    "id": "f39415a6-8656-cb35-f43f-1b76103beebc",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "move_sprite_by",
+    "name": "spawn_next",
     "IsCompatibility": false,
     "IsDnD": false
 }
