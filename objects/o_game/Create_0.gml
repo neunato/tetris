@@ -1,7 +1,14 @@
 rows = 15
 cols = 10
+
+level = 0
+lines = 0
+lines_in_level = min(level+1, max(10, level-5)) * 10
+
+gravity_per_level = [48, 43, 38, 33, 28, 23, 18, 13, 8, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1]
+var l = min(level, len(gravity_per_level)-1)
+delay_gravity = gravity_per_level[l]
 delay_freeze = 96
-delay_gravity = 10
 delay_shift = [16, 6]             // the piece moves immediately, and again every 6 frames after an initial delay of 16
 delay_drop = [3, 2]               // the piece moves every 2 frames after an initial delay of 3
 delay_spawn = 10

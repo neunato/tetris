@@ -33,5 +33,15 @@ with o_game {
         map[r] = array_create(cols, noone)
     }
 
+    lines += offset
+    lines_in_level -= offset
+    if lines_in_level <= 0 {
+        level++
+        lines_in_level += 10
+        var l = min(level, len(gravity_per_level)-1)
+        delay_gravity = gravity_per_level[l]
+        timer_gravity = delay_gravity
+    }
+
     timer_clear = delay_clear
 }
