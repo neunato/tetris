@@ -1,6 +1,26 @@
-// line clear delay
+// line clear animation
+var layer_id = layer_get_id("Background")
+var background_id = layer_background_get_id(layer_id)
+layer_background_blend(background_id, c_black)
+
 if timer_clear > 0 {
     timer_clear--
+    if timer_clear % 4 == 0 {
+        var c = timer_clear div 4
+        var n = len(cleared_lines)
+        for (var i=0; i<n; i++) {
+            var r = cleared_lines[i]
+            instance_destroy(get(map, r, c))
+            instance_destroy(get(map, r, (cols - 1 - c)))
+        }
+        if c == 0 {
+            clear(cleared_lines)
+            spawn(delay_spawn)
+        }
+        if n == 4 {
+            layer_background_blend(background_id, c_white)
+        }
+    }
     return
 }
 

@@ -1,11 +1,17 @@
-var delay_spawn = o_game.delay_spawn
 
 with o_player {
     var pos = [position[0] + 1, position[1]]
     if collides(tetromino, pos) {
-        cleared = lock()
-        clear(cleared)
-        spawn(delay_spawn)
+        var cleared = lock()
+        with o_game {
+            if len(cleared) > 0 {
+                cleared_lines = cleared
+                timer_clear = delay_clear
+            }
+            else {
+                spawn(delay_spawn)
+            }
+        }
     }
     else {
         position = pos
