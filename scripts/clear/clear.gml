@@ -35,6 +35,7 @@ with o_game {
 
     lines += offset
     lines_in_level -= offset
+    points += points_table[offset - 1] * (level + 1)
     if lines_in_level <= 0 {
         level++
         lines_in_level += 10
