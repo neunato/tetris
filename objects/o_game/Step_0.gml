@@ -33,40 +33,56 @@ if timer_spawn > 0 {
     return
 }
 
-// left and right movement
-if keyboard_check_pressed(vk_left) {
-    timer_shift = delay_shift[0]
-    move(-1)
-}
-else if keyboard_check(vk_left) {
-    timer_shift--
-    if timer_shift == 0 {
-        timer_shift = delay_shift[1]
-        move(-1)
+
+var left = pressed(vk_left)
+var left_held = held(vk_left)
+var right = pressed(vk_right)
+var right_held = held(vk_right)
+var down = pressed(vk_down)
+var down_held = held(vk_down)
+var a = pressed(ord("A"))
+var b = pressed(ord("D"))
+
+// SHIFTING
+// not allowed when down is pressed
+// not allowed when both left and right are pressed
+if not down_held and (left_held xor right_held) {
+    if left {
+        timer_shift = delay_shift[0]
+        shift(-1)
+    }
+    else if left_held {
+        timer_shift--
+        if timer_shift == 0 {
+            timer_shift = delay_shift[1]
+            shift(-1)
+        }
+    }
+    else if right {
+        timer_shift = delay_shift[0]
+        shift(1)
+    }
+    else if right_held {
+        timer_shift--
+        if timer_shift == 0 {
+            timer_shift = delay_shift[1]
+            shift(1)
+        }
     }
 }
 
-if keyboard_check_pressed(vk_right) {
-    timer_shift = delay_shift[0]
-    move(1)
-}
-else if keyboard_check(vk_right) {
-    timer_shift--
-    if timer_shift == 0 {
-        timer_shift = delay_shift[1]
-        move(1)
-    }
-}
 
-// rotations
-if keyboard_check_pressed(ord("A")) {
+// ROTATING
+if a {
     rotate(-1)
 }
-else if keyboard_check_pressed(ord("D")) {
+else if b {
     rotate(1)
 }
 
-// down movement (drops don't stack)
+
+// GRAVITY DROP
+// does not stack with soft drop
 if timer_freeze > 0 {
     timer_freeze--
     if timer_freeze == 0 {
@@ -82,15 +98,20 @@ else {
     }
 }
 
-if keyboard_check_pressed(vk_down) {
-    timer_drop = delay_drop[0]
-    timer_freeze = 0
-    allow_autodrop = true
-}
-else if keyboard_check(vk_down) and allow_autodrop {
-    timer_drop--
-    if timer_drop == 0 {
-        timer_drop = delay_drop[1]
-        drop()
+
+// SOFT DROP
+// not allowed when left or right is pressed
+if not (left_held xor right_held) {
+    if down {
+        timer_softdrop = delay_softdrop[0]
+        timer_freeze = 0
+        stop_softdropping = false
+    }
+    else if down_held and not stop_softdropping {
+        timer_softdrop--
+        if timer_softdrop == 0 {
+            timer_softdrop = delay_softdrop[1]
+            drop()
+        }
     }
 }

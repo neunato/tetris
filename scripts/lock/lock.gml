@@ -34,7 +34,7 @@ with o_player {
         }
     }
 
-    o_game.allow_autodrop = false
+    o_game.stop_softdropping = true
 
     return lines
 }
