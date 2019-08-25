@@ -1,5 +1,5 @@
 // game grid
-rows = 15
+rows = 20
 cols = 10
 map = []
 for (var i=rows-1; i>=0; i--) {
@@ -7,10 +7,13 @@ for (var i=rows-1; i>=0; i--) {
 }
 
 // gravity per level, exceeding levels use last entry
-gravity_table = [48, 43, 38, 33, 28, 23, 18, 13, 8, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1]
+delay_gravity_table = [48, 43, 38, 33, 28, 23, 18, 13, 8, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1]
 
-// line clear points multipliers: points_table[len(lines_cleared)-1] * (global.level+1)
-points_table = [40, 100, 300, 1200]
+// entry delay per row the last piece was locked in
+delay_entry_table = [20, 20, 18, 18, 18, 18, 16, 16, 16, 16, 14, 14, 14, 14, 12, 12, 12, 12, 10, 10]
+
+// line clear points multipliers: scoring_table[len(lines_cleared)-1] * (global.level+1)
+scoring_table = [40, 100, 300, 1200]
 
 // tetrominoes stored as [tile_type, rotations]
 tetrominoes = [
@@ -93,19 +96,19 @@ colours = [
 ]
 
 // game mechanics frame durations and the countdown timers used to track them
-delay_gravity = undefined         // depends on level, assigned on game start and level ups
 delay_freeze = 96
+delay_gravity = undefined         // depends on level, assigned on game start and level ups
+delay_entry = undefined
+delay_clear = 17
 delay_shift = [16, 6]             // the piece moves immediately, and again every 6 frames after an initial delay of 16
 delay_softdrop = [3, 2]           // the piece moves every 2 frames after an initial delay of 3
-delay_spawn = 10
-delay_clear = 17
 
-timer_gravity = 0                 // frames until moving down due to gravity
 timer_freeze = 0                  // frames until gravity starts working (first piece only)
+timer_gravity = 0                 // frames until moving down due to gravity
+timer_entry = 0                   // frames until active again before tetromino entry
+timer_clear = 0                   // frames until active again after line clear
 timer_shift = 0                   // frames until moving to the side while holding left/right
 timer_softdrop = 0                // frames until moving down while holding down
-timer_spawn = 0                   // frames until active again before tetromino entry
-timer_clear = 0                   // frames until active again after line clear
 
 // flag used to prevent autodrop to transfer to the next piece
 stop_softdropping = false

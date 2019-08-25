@@ -1,7 +1,8 @@
 var map = o_game.map
 var cols = o_game.cols
 var rows = o_game.rows
-var cleared = o_game.cleared_rows
+var cleared_rows = o_game.cleared_rows
+var tetromino_hitboxes = o_game.tetromino_hitboxes
 
 with o_game {
     timer_gravity = delay_gravity
@@ -17,7 +18,7 @@ with o_player {
     }
 
     // collision - lock tetromino and track cleared lines
-    ds_list_clear(cleared)
+    ds_list_clear(cleared_rows)
     var tiles_at = 0
     var n = len(tetromino)
     for (var i=0; i<n; i++) {
@@ -41,19 +42,23 @@ with o_player {
                 }
             }
             if c == cols {
-                ds_list_add(cleared, r)
+                ds_list_add(cleared_rows, r)
             }   
         }
     }
 
+
     // spawn the next piece or trigger line clear animation (which ultimately spawns the next piece)
+    var tmp = tetromino_hitboxes[? tetromino]
+    var r = position[0] + len(tetromino) - 1 - tmp[1]   // row (lowest) tetromino was locked in
     with o_game {
-        if not ds_list_empty(cleared) {
+        stop_softdropping = true
+        delay_entry = delay_entry_table[r]
+        if not ds_list_empty(cleared_rows) {
             timer_clear = delay_clear
         }
         else {
-            spawn(delay_spawn)
+            spawn(delay_entry)
         }
-        stop_softdropping = true
     }
 }

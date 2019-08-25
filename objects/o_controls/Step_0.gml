@@ -7,7 +7,6 @@ with o_game {
 
     // line clear animation
     if timer_clear > 0 {
-    
         timer_clear--
         if timer_clear % 4 == 0 {                  // every four frames two tiles are removed
             var c = timer_clear div 4              // step of the animation
@@ -19,7 +18,7 @@ with o_game {
             }
             if c == 0 {
                 clear(cleared_rows)
-                spawn(delay_spawn)
+                spawn(delay_entry)
             }
             if n == 4 {
                 layer_background_blend(background, c_white)
@@ -29,9 +28,9 @@ with o_game {
     }
 
     // tetromino entry delay
-    if timer_spawn > 0 {
-        timer_spawn--
-        if timer_spawn == 0 {
+    if timer_entry > 0 {
+        timer_entry--
+        if timer_entry == 0 {
             spawn()
         }
         return

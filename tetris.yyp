@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "2030eb89-6516-9657-3de6-6f2cd8df4c43",
+            "Value": {
+                "id": "9e988965-7a56-a83e-a796-1ff4ed09f60a",
+                "resourcePath": "objects\\o_macros\\o_macros.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "28234190-97de-902a-3b20-1ebd9bf88d1a",
             "Value": {
                 "id": "d6848c95-f931-79da-e0f6-08cfb8d8d352",
@@ -98,7 +106,7 @@
             "Key": "40680717-f0a5-e572-1c34-4915e97f66ca",
             "Value": {
                 "id": "dbba1a8f-1fb1-e171-74c3-9b9a38a6f3cd",
-                "resourcePath": "scripts/defeat/defeat.yy",
+                "resourcePath": "scripts\/defeat\/defeat.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -170,7 +178,7 @@
             "Key": "726805b3-0c74-74ec-3b75-84db9acd413b",
             "Value": {
                 "id": "eb9ed1ec-7521-7dd7-c10b-4795ad4dab12",
-                "resourcePath": "scripts/instance_create/instance_create.yy",
+                "resourcePath": "scripts\/instance_create\/instance_create.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -202,7 +210,7 @@
             "Key": "9a809d92-6c66-ad72-97bd-1764a3ecdd1e",
             "Value": {
                 "id": "ef516a36-ef06-c172-9fd5-ccba431a4152",
-                "resourcePath": "scripts/shift/shift.yy",
+                "resourcePath": "scripts\/shift\/shift.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -242,7 +250,7 @@
             "Key": "b710e26e-a951-0954-1cde-653921bd7e1f",
             "Value": {
                 "id": "5671cfdc-845b-e47e-36ba-7b372ade4d41",
-                "resourcePath": "scripts/move_sprite_to/move_sprite_to.yy",
+                "resourcePath": "scripts\/move_sprite_to\/move_sprite_to.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -298,7 +306,7 @@
             "Key": "ca447d7f-ff07-4fd9-f2f7-9397e97d79c7",
             "Value": {
                 "id": "60ab6aa9-2ee6-264f-0f8a-ba2b573db598",
-                "resourcePath": "scripts/redraw_row/redraw_row.yy",
+                "resourcePath": "scripts\/redraw_row\/redraw_row.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -346,7 +354,7 @@
             "Key": "ec71a403-37b0-c25f-2669-1ec425ef49dc",
             "Value": {
                 "id": "cc2cfffd-29f8-8257-6485-ce0fff19e59a",
-                "resourcePath": "scripts/clone/clone.yy",
+                "resourcePath": "scripts\/clone\/clone.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -355,6 +363,14 @@
             "Value": {
                 "id": "1c1b611f-33f7-fd18-4973-0394780a58bf",
                 "resourcePath": "scripts\\collides\\collides.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f2368a9a-09a5-f884-1ef2-4cdba218b1fa",
+            "Value": {
+                "id": "b4480ff9-37f2-9281-cf4c-1a3dbbfec660",
+                "resourcePath": "scripts\\cache_tetromino_hitbox\\cache_tetromino_hitbox.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -371,6 +387,14 @@
             "Value": {
                 "id": "0b9f4234-0dd3-48c2-af73-4d515542ff88",
                 "resourcePath": "objects\\o_tile\\o_tile.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f7efa529-b9df-2d5a-71d9-0add090021e1",
+            "Value": {
+                "id": "d14b352d-3de7-0e94-6e7a-74c8f16098aa",
+                "resourcePath": "objects\\o_controls\\o_controls.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -397,30 +421,6 @@
                 "resourcePath": "views\\fcb25817-9d88-40b9-aaa4-2024e2e5655d.yy",
                 "resourceType": "GMFolder"
             }
-        },
-        {
-            "Key": "f7efa529-b9df-2d5a-71d9-0add090021e1",
-            "Value": {
-                "id": "d14b352d-3de7-0e94-6e7a-74c8f16098aa",
-                "resourcePath": "objects\\o_controls\\o_controls.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "2030eb89-6516-9657-3de6-6f2cd8df4c43",
-            "Value": {
-                "id": "9e988965-7a56-a83e-a796-1ff4ed09f60a",
-                "resourcePath": "objects\\o_macros\\o_macros.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "f2368a9a-09a5-f884-1ef2-4cdba218b1fa",
-            "Value": {
-                "id": "b4480ff9-37f2-9281-cf4c-1a3dbbfec660",
-                "resourcePath": "scripts\\cache_tetromino_hitbox\\cache_tetromino_hitbox.yy",
-                "resourceType": "GMScript"
-            }
         }
     ],
     "script_order": [
@@ -428,24 +428,21 @@
         "679cd3be-96ed-38c5-a4b6-33311709e65d",
         "92b5ba7c-1b26-3370-a1ce-65141f3f37ee",
         "c3cd880e-3226-af34-f6f2-3d93015b15d7",
-        "10b9f6fa-0179-14a4-5185-4bc556193d9a",
-        "5667050b-c339-17d9-574b-da5ce0410e1e",
         "ec71a403-37b0-c25f-2669-1ec425ef49dc",
         "9a809d92-6c66-ad72-97bd-1764a3ecdd1e",
         "d04e623b-5dee-89a4-d455-0f9623103fbf",
         "4e77ce38-aad2-b199-aad9-c456311f6eab",
-        "f4e80d52-e39f-b9ba-b58c-c8c8c6fba2a1",
         "0d165750-8897-e937-8007-7b85bb2f2e47",
         "f1478d65-d05a-dcd9-0ace-98e8452ff40d",
         "c853e529-1fce-1a5c-bb65-20616ddbd720",
         "f39415a6-8656-cb35-f43f-1b76103beebc",
         "e7cb6517-6ed3-d785-bc4f-be67974dc620",
         "40680717-f0a5-e572-1c34-4915e97f66ca",
+        "f2368a9a-09a5-f884-1ef2-4cdba218b1fa",
         "1c391bc6-5f1b-dbee-35d3-38fcb547b9e5",
         "28234190-97de-902a-3b20-1ebd9bf88d1a",
         "ca447d7f-ff07-4fd9-f2f7-9397e97d79c7",
-        "b710e26e-a951-0954-1cde-653921bd7e1f",
-        "339a43f8-eaae-907e-dd18-257506e2581f"
+        "b710e26e-a951-0954-1cde-653921bd7e1f"
     ],
     "tutorial": ""
 }

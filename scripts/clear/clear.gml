@@ -39,5 +39,5 @@ with o_game {
         delay_gravity = level_gravity
         timer_gravity = level_gravity
     }
-    global.points += points_table[offset - 1] * (global.level + 1)
+    global.points += scoring_table[offset - 1] * (global.level + 1)
 }

@@ -1,1 +1,1 @@
-#macro level_gravity o_game.gravity_table[min(global.level, len(o_game.gravity_table)-1)]
+#macro level_gravity o_game.delay_gravity_table[min(global.level, len(o_game.delay_gravity_table)-1)]

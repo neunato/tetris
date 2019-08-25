@@ -3,7 +3,7 @@ var delay = argument_count > 0 ? argument[0] : 0;
 
 if delay > 0 {
     with o_game {
-        timer_spawn = delay
+        timer_entry = delay
     }
     return
 }
