@@ -1,9 +1,9 @@
 var cols = o_game.cols
-var empty_lines_cache = o_game.empty_lines_cache
+var tetromino_hitboxes = o_game.tetromino_hitboxes
 
 with o_player {
     var next = next_rotations[0]
-    var tmp = empty_lines_cache[? next]
+    var tmp = tetromino_hitboxes[? next]
     var top = tmp[0]
     var bottom = tmp[1]
     var n = len(next)

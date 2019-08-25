@@ -1,8 +1,8 @@
 {
-    "id": "f4e80d52-e39f-b9ba-b58c-c8c8c6fba2a1",
+    "id": "726805b3-0c74-74ec-3b75-84db9acd413b",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "lock",
+    "name": "instance_create",
     "IsCompatibility": false,
     "IsDnD": false
 }

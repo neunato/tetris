@@ -10,7 +10,7 @@ with o_player {
     // create tiles
     next_tiles = array_create(4)
     for (var i=0; i<4; i++) {
-        var tile = instance_create_layer(0, 0, "Instances", o_tile)
+        var tile = instance_create(o_tile, 0, 0)
         tile.tile_type = tile_type
         next_tiles[i] = tile
     }

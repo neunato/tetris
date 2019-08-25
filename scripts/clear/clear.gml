@@ -1,16 +1,17 @@
 /// @param cleared
 var cleared = argument0;
 
-if len(cleared) == 0 {
+var n = ds_list_size(cleared)
+if n == 0 {
     return
 }
 
 with o_game {
-    var at = len(cleared) - 1
+    var at = n - 1
     var offset = 0
-    for (var r=cleared[at]; r>=0; r--) {
+    for (var r=cleared[|at]; r>=0; r--) {
         // row cleared - increase offset for moving rows
-        if cleared[at] == r {
+        if cleared[|at] == r {
             offset++
             if at > 0 {
                 at--
@@ -30,14 +31,13 @@ with o_game {
     }
 
     // update lines/level/score
-    lines += offset
-    lines_in_level -= offset
-    points += points_table[offset - 1] * (level + 1)
-    if lines_in_level <= 0 {
-        level++
-        lines_in_level += 10
-        var l = min(level, len(gravity_per_level)-1)
-        delay_gravity = gravity_per_level[l]
-        timer_gravity = delay_gravity
+    global.lines += offset
+    global.lines_in_level -= offset
+    if global.lines_in_level <= 0 {
+        global.level++
+        global.lines_in_level += 10
+        delay_gravity = level_gravity
+        timer_gravity = level_gravity
     }
+    global.points += points_table[offset - 1] * (global.level + 1)
 }

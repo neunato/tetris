@@ -9,7 +9,7 @@ if delay > 0 {
 }
 
 var cols = o_game.cols
-var empty_lines_cache = o_game.empty_lines_cache
+var tetromino_hitboxes = o_game.tetromino_hitboxes
 
 with o_player {
     if len(next_rotations) == 0 {
@@ -25,7 +25,7 @@ with o_player {
     tetromino = rotations[0]
 
     // centre it
-    var tmp = empty_lines_cache[? tetromino]
+    var tmp = tetromino_hitboxes[? tetromino]
     var offset_top = tmp[0]
     position[0] = -offset_top
     position[1] = floor((cols - len(tetromino)) / 2)

@@ -6,22 +6,23 @@ var offset
 var white
 var colour
 var type = tile_type
+var level = global.level
 
 with o_game {
     var tmp = colours[level % len(colours)]
-    white = tmp[1]
+    white = tmp[0]
 
     if type == 1 {
         offset = 1
-        colour = tmp[3]
+        colour = tmp[2]
     }
     else if type == 2 {
         offset = 2
-        colour = tmp[2]
+        colour = tmp[1]
     }
     else if type == 3 {
         offset = 2
-        colour = tmp[3]
+        colour = tmp[2]
     }
     else {
         return

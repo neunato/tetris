@@ -1,8 +1,8 @@
 {
-    "id": "5667050b-c339-17d9-574b-da5ce0410e1e",
+    "id": "f2368a9a-09a5-f884-1ef2-4cdba218b1fa",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "pressed",
+    "name": "cache_tetromino_hitbox",
     "IsCompatibility": false,
     "IsDnD": false
 }
