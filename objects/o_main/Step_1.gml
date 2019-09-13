@@ -3,7 +3,7 @@ var window_width = window_get_width()
 var window_height = window_get_height()
 var scale_x = window_width / room_width
 var scale_y = window_height / room_height
-var scale = floor(min(scale_x, scale_y))
+var scale = max(2, floor(min(scale_x, scale_y)))
 var game_width = room_width * scale
 var game_height = room_height * scale
 

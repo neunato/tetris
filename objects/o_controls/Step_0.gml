@@ -1,8 +1,19 @@
-if global.paused {
+if global.menu.open {
+    return
+}
+
+if not global.playing {
+    return
+}
+
+var key_escape = keyboard_check_pressed(vk_escape)
+if key_escape {
+    menu_open(global.menu)
     return
 }
 
 with o_game {
+
     layer_background_blend(background, c_black)
 
     // line clear animation
@@ -37,14 +48,14 @@ with o_game {
     }
     
     
-    var left_held  = keyboard_check(vk_left)
-    var right_held = keyboard_check(vk_right)
-    var down_held  = keyboard_check(vk_down)
-    var left       = keyboard_check_pressed(vk_left)
-    var right      = keyboard_check_pressed(vk_right)
-    var down       = keyboard_check_pressed(vk_down)
-    var a          = keyboard_check_pressed(ord("A"))
-    var b          = keyboard_check_pressed(ord("D"))
+    var left_held  = keyboard_check(global.key_left)
+    var right_held = keyboard_check(global.key_right)
+    var down_held  = keyboard_check(global.key_down)
+    var left       = keyboard_check_pressed(global.key_left)
+    var right      = keyboard_check_pressed(global.key_right)
+    var down       = keyboard_check_pressed(global.key_down)
+    var a          = keyboard_check_pressed(global.key_rotate_left)
+    var b          = keyboard_check_pressed(global.key_rotate_right)
     
     
     // SHIFT

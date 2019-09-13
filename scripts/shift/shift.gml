@@ -5,13 +5,13 @@ if dir != 1 and dir != -1 {
     return
 }
 
-with o_player {
-    var pos = [position[0], position[1] + dir]
-    if collides(tetromino, pos) {
+with o_game {
+    var position = [player_position[0], player_position[1] + dir]
+    if collides(tetromino, position) {
         o_game.timer_shift = 1
         return
     }
 
-    position = pos
+    player_position = position
     redraw_player()
 }

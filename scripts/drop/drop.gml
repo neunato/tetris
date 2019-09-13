@@ -1,18 +1,11 @@
-var map = o_game.map
-var cols = o_game.cols
-var rows = o_game.rows
-var cleared_rows = o_game.cleared_rows
-var tetromino_hitboxes = o_game.tetromino_hitboxes
 
 with o_game {
     timer_gravity = delay_gravity
-}
 
-with o_player {
     // no collision - drop tetromino
-    var pos = [position[0] + 1, position[1]]
-    if not collides(tetromino, pos) {
-        position = pos
+    var position = [player_position[0] + 1, player_position[1]]
+    if not collides(tetromino, position) {
+        player_position = position
         redraw_player()
         return
     }
@@ -22,13 +15,13 @@ with o_player {
     var tiles_at = 0
     var n = len(tetromino)
     for (var i=0; i<n; i++) {
-        var r = i + position[0]
+        var r = i + player_position[0]
 
         // copy row of tetromino to map
         for (var j=0; j<n; j++) {
-            var c = j + position[1]
+            var c = j + player_position[1]
             if get(tetromino, i, j) == 1 {
-                var tile = tiles[tiles_at]
+                var tile = player_tiles[tiles_at]
                 set(map, r, c, tile)
                 tiles_at++
             }
@@ -50,7 +43,7 @@ with o_player {
 
     // spawn the next piece or trigger line clear animation (which ultimately spawns the next piece)
     var tmp = tetromino_hitboxes[? tetromino]
-    var r = position[0] + len(tetromino) - 1 - tmp[1]   // row (lowest) tetromino was locked in
+    var r = player_position[0] + len(tetromino) - 1 - tmp[1]   // row (lowest) tetromino was locked in
     with o_game {
         stop_softdropping = true
         delay_entry = delay_entry_table[r]

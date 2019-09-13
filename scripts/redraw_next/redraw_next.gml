@@ -1,7 +1,5 @@
-var cols = o_game.cols
-var tetromino_hitboxes = o_game.tetromino_hitboxes
 
-with o_player {
+with o_game {
     var next = next_rotations[0]
     var tmp = tetromino_hitboxes[? next]
     var top = tmp[0]

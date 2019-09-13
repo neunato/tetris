@@ -5,15 +5,15 @@ if dir != 1 and dir != -1 {
     return
 }
 
-with o_player {
-    var n = len(rotations)
-    var at = (rotations_at + dir + n) % n
-    var rotated = rotations[at]
-    if collides(rotated, position) {
+with o_game {
+    var n = len(player_rotations)
+    var at = (player_rotations_at + dir + n) % n
+    var rotated = player_rotations[at]
+    if collides(rotated, player_position) {
         return
     }
 
     tetromino = rotated
-    rotations_at = at
+    player_rotations_at = at
     redraw_player()
 }

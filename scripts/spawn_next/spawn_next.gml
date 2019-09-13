@@ -1,6 +1,6 @@
 var tetrominoes = o_game.tetrominoes
 
-with o_player {
+with o_game {
     // get random tetromino
     var r = irandom(len(tetrominoes) - 1)
     var tmp = tetrominoes[r]

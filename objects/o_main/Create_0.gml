@@ -1,22 +1,54 @@
 // game stuff
-global.paused = true
-global.level = undefined
-global.lines = undefined
+global.playing        = false
+global.level          = undefined
+global.lines          = undefined
 global.lines_in_level = undefined
-global.points = undefined
+global.points         = undefined
 
 // scaling stuff
-global.game_width = 0
-global.game_height = 0
-global.window_width = 0
+global.game_width    = 0
+global.game_height   = 0
+global.window_width  = 0
 global.window_height = 0
+
+// key bindings
+global.key_left         = vk_left
+global.key_right        = vk_right
+global.key_down         = vk_down
+global.key_rotate_left  = ord("A")
+global.key_rotate_right = ord("D")
+global.menu_level       = 18
 
 // controller objects
 instance_create(o_game)
-instance_create(o_player)
 instance_create(o_controls)
 
+// menu
+var menu_root = ["", menu_type.menu, [
+    ["resume", menu_type.trigger, [menu_close, true], "playing"],
+    ["new game", menu_type.trigger, [start_game, true]],
+    ["level", menu_type.select, ["menu_level", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], global.menu_level]],
+    ["settings", menu_type.menu, [
+        ["fullscreen", menu_type.fullscreen],
+        ["left", menu_type.keybind, ["key_left"]],
+        ["right", menu_type.keybind, ["key_right"]],
+        ["down", menu_type.keybind, ["key_down"]],
+        ["rotate cw", menu_type.keybind, ["key_rotate_right"]],
+        ["rotate ccw", menu_type.keybind, ["key_rotate_left"]],
+        ["back", menu_type.back]
+    ]],
+    ["quit", menu_type.quit],
+]]
+var menu_settings = [
+    ["close_on_escape", "playing"]
+]
+global.menu = menu_create(menu_root, menu_settings, true)
+
+
 // upscale the window up to four times
+room_width = (o_game.cols + 6 + 10) * sprite_get_height(s_tile)
+room_height = o_game.rows * sprite_get_height(s_tile)
+
 var display_width = display_get_width()
 var display_height = display_get_height()
 var scale_x = display_width / room_width
@@ -29,7 +61,3 @@ if scale > 1 {
     alarm[0] = 1
 }
 application_surface_draw_enable(false)
-
-
-// game start
-start(0)

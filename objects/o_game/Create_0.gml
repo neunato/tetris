@@ -6,6 +6,15 @@ for (var i=rows-1; i>=0; i--) {
     map[i] = array_create(cols, noone)
 }
 
+// player position, current and next tetromino
+player_position = [0, 0]            // position in map [row, col]
+player_rotations = []               // o_game.tetrominoes[random].rotations
+player_rotations_at = 0             // current rotation
+player_tiles = []                   // four o_tile objects
+next_rotations = []
+next_tiles = []
+tetromino = undefined               // shorthand for rotations[rotations_at]
+
 // gravity per level, exceeding levels use last entry
 delay_gravity_table = [48, 43, 38, 33, 28, 23, 18, 13, 8, 6, 5, 5, 5, 4, 4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1]
 
