@@ -12,6 +12,8 @@ for (var i=0; i<n; i++) {
         var tetromino = rotations[j]
         var empty_top = 0
         var empty_bottom = 0
+        var empty_left = 0
+        var empty_right = 0
         var l = len(tetromino)
         for (var r=0; r<l; r++) {
             var c = 0
@@ -37,8 +39,31 @@ for (var i=0; i<n; i++) {
                 break
             }
         }
-    
-        cache[? tetromino] = [empty_top, empty_bottom]
+        for (var r=0; r<l; r++) {
+            var c = 0
+            while (c < l and get(tetromino, c, r) == 0) {
+                c++
+            }
+            if c == l {
+                empty_left++
+            }
+            else {
+                break
+            }
+        }
+        for (var r=l-1; r>=0; r--) {
+            var c = 0
+            while (c < l and get(tetromino, c, r) == 0) {
+                c++
+            }
+            if c == l {
+                empty_right++
+            }
+            else {
+                break
+            }
+        }
+        cache[? tetromino] = [empty_top, empty_bottom, empty_left, empty_right]
     }
 }
 

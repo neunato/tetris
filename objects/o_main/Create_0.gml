@@ -46,14 +46,20 @@ global.menu = menu_create(menu_root, menu_settings, true)
 
 
 // upscale the window up to four times
-room_width = (o_game.cols + 6 + 10) * sprite_get_height(s_tile)
-room_height = o_game.rows * sprite_get_height(s_tile)
+var tile_width = sprite_get_height(s_tile)
+
+room_width = 19 * tile_width
+room_height = 21 * tile_width
+
+game_padding_rows = (21 - o_game.rows) / 2
+game_padding_cols = (19 - o_game.cols - 1 - 5) / 2
 
 var display_width = display_get_width()
 var display_height = display_get_height()
 var scale_x = display_width / room_width
 var scale_y = display_height / room_height
-var scale = min(4, floor(min(scale_x, scale_y)))
+scale = min(4, floor(min(scale_x, scale_y)))
+
 if scale > 1 {
     var window_width = room_width * scale
     var window_height = room_height * scale

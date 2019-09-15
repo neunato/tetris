@@ -1,4 +1,3 @@
-var tetrominoes = o_game.tetrominoes
 
 with o_game {
     // get random tetromino

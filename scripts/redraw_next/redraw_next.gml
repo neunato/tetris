@@ -1,13 +1,16 @@
-
 with o_game {
+    var tile_width = sprite_get_height(s_tile)
     var next = next_rotations[0]
+    var n = len(next)
     var tmp = tetromino_hitboxes[? next]
     var top = tmp[0]
     var bottom = tmp[1]
-    var n = len(next)
-
-    var offset_r = (3 - (n - top - bottom)) / 2 - top          + 1
-    var offset_c = (room_width / 64 - cols - n) / 2            + cols + 0.125
+    var left = tmp[2]
+    var right = tmp[3]
+    var height = n - top - bottom
+    var width = n - left - right
+    var offset_r = 62 / tile_width + (4 - height) / 2 - top - 1
+    var offset_c = cols + 1.125 + (4 - width) / 2
 
     var at = 0
     for (var r=0; r<n; r++) {
