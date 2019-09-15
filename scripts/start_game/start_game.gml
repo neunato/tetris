@@ -8,31 +8,37 @@ global.points = 0
 global.playing = true
 
 with o_game {
+    // destroy tiles
+    instance_destroy(o_tile)
+    
+    // destroy map
+    for (var r=0; r<rows; r++) {
+        var row = map[r]
+        for (var c=0; c<cols; c++) {
+            row[@c] = noone
+        }
+    }
+
+    // reset player stuff
+    player_rotations = []
+    player_tiles = []
+    next_rotations = []
+    next_tiles = []
+    tetromino = undefined
+
+    // reset timers
+    timer = 0
+    timer_freeze = 0
+    timer_gravity = 0
+    timer_entry = 0
+    timer_clear = 0
+    timer_end = 0
+    timer_shift = 0
+    timer_softdrop = 0
+
+    // spawn and delay tetromino
     delay_gravity = get_level_gravity()
     timer_gravity = delay_gravity
     timer_freeze = delay_freeze
-
-    // not the first game we're starting, reset values
-    if tetromino != undefined {
-        for (var r=0; r<rows; r++) {
-            var row = map[r]
-            for (var c=0; c<cols; c++) {
-                instance_destroy(row[c])
-                row[@c] = noone
-            }
-        }
-        
-        for (var i=0; i<4; i++) {
-            instance_destroy(player_tiles[i])
-            instance_destroy(next_tiles[i])
-        }
-        
-        player_rotations = []
-        player_tiles = []
-        next_rotations = []
-        next_tiles = []
-        tetromino = undefined
-    }
+    spawn(0)
 }
-
-spawn(0)
