@@ -16,18 +16,10 @@ var menu = stack[|stack_size - 1]
 var title = menu[0]
 var index = menu[2]
 var menu_size = len(visible_items)
-var selected_item = visible_items[index]
-
-if selected_item == undefined {
-    return
-}
-
-var selected_type = selected_item[1]
-
 
 // draw visible menu items
 var font_size = font_get_size(f_main)
-var menu_width = 140                   // 66 left + 8 padding + 66 right
+var menu_width = 134
 var menu_item_height = font_size * 2
 var xx = max(0, (room_width - menu_width) / 2)
 var yy = max(0, (room_height - menu_item_height*visible_size) / 2)
@@ -125,7 +117,7 @@ for (var i=0; i<menu_size; i++) {
 
     draw_text(xx, yy, label_left)
     if label_right != undefined {
-        draw_text(xx + (menu_width - 8) / 2 + 8, yy, label_right)
+        draw_text(xx + menu_width / 2, yy, label_right)
     }
 
     yy += menu_item_height

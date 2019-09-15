@@ -37,7 +37,7 @@ with o_game {
         global.level++
         global.lines_in_level += 10
         delay_gravity = get_level_gravity()
-        timer_gravity = get_level_gravity()
+        timer_gravity = delay_gravity
     }
     global.points += scoring_table[offset - 1] * (global.level + 1)
 }

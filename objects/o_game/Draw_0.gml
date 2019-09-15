@@ -7,8 +7,8 @@ var font_size = font_get_size(f_main)
 // draw border around playfield
 var xx = (game_padding_cols - 0.25) * tile_width
 var yy = (game_padding_rows - 0.25) * tile_width
-var width = (cols + 0.125) * tile_width + 0.1           // 0.1 of a pixel (before scaling) pushes the border by one pixel
-var height = (rows + 0.125) * tile_width + 0.1          // 0.1 of a pixel (before scaling) pushes the border by one pixel
+var width = (cols + 0.125) * tile_width + 0.1           // 0.1 of a pixel pushes the border by one pixel
+var height = (rows + 0.125) * tile_width + 0.1          // 0.1 of a pixel pushes the border by one pixel
 draw_rectangle(xx, yy, xx + width, yy + height, true)
 
 // draw ui texts

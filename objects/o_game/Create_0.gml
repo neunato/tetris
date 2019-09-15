@@ -90,7 +90,7 @@ tetrominoes = [
 // spawning and drawing the next piece, so we cache the computation
 tetromino_hitboxes = cache_tetromino_hitbox(tetrominoes)
 
-// colours per level stored as [black, white, colour1, colour2]
+// colours per level stored as [white, colour1, colour2]
 colours = [
     [$fcfcfc, $fcbc3c, $f85800],   // level 0, 10, 20..
     [$fcfcfc, $18f8b8, $00a800],   // level 1, 11, 21..

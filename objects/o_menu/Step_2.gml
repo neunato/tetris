@@ -106,7 +106,6 @@ if inputting {
 // escape - pop from stack
 if key_escape and pop_on_escape and stack_size > 1 {
     ds_list_delete(stack, stack_size - 1)
-    event_perform_object(o_menu, ev_step, ev_step_begin)
     return
 }
 
@@ -147,7 +146,6 @@ else if key_enter {
             var title = selected_item[0]
             var menu_items = selected_item[2]
             ds_list_add(stack, [title, menu_items, 0, []])
-            event_perform_object(o_menu, ev_step, ev_step_begin)
         break
 
         case menu_type.trigger:
@@ -157,7 +155,6 @@ else if key_enter {
             script_execute(script)
             if pop_on_select {
                 ds_list_delete(stack, stack_size - 1)
-                event_perform_object(o_menu, ev_step, ev_step_begin)
             }
         break
 
@@ -173,7 +170,6 @@ else if key_enter {
 
         case menu_type.back:
             ds_list_delete(stack, stack_size - 1)
-            event_perform_object(o_menu, ev_step, ev_step_begin)
         break
 
         case menu_type.quit:
