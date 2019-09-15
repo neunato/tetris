@@ -23,7 +23,7 @@ with o_game {
     var tmp = tetromino_hitboxes[? tetromino]
     var offset_top = tmp[0]
     player_position[0] = -offset_top
-    player_position[1] = floor((cols - len(tetromino)) / 2)
+    player_position[1] = ceil((cols - len(tetromino)) / 2)
 
     // spawn next random tetromino
     spawn_next()
@@ -32,6 +32,6 @@ with o_game {
     redraw_player()
 
     if collides(tetromino, player_position) {
-        defeat()
+        end_game()
     }
 }

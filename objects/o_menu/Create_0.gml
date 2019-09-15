@@ -1,12 +1,11 @@
 enum menu_type {
-    menu,
-    back,
-    trigger,          // ["title", menu_type.trigger, [script, ?close_on_trigger], ?"global_var_condition"]
+    menu,             // ["label", menu_type.menu, [["label", menu_type.back]]
+    back,             // ["label", menu_type.back]
+    trigger,          // ["title", menu_type.trigger, [script, ?close_on_trigger]]
     select,           // ["title", menu_type.select, [script, ["a", "b"], 0]],
     keybind,          // ["left", menu_type.keybind, ["key_left"]],
     fullscreen,       // ["fullscreen", menu_type.fullscreen]
-    quit,             // ["quit", menu_type.quit]
-    padding
+    quit              // ["quit", menu_type.quit]
 }
 
 depth = -1000

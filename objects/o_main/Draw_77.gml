@@ -7,6 +7,6 @@ if window_width < game_width or window_height < game_height {
     return       // black background
 }
 
-var offset_x = (window_width - game_width) / 2
-var offset_y = (window_height - game_height) / 2
-draw_surface_ext(application_surface, offset_x, offset_y, 1, 1, 0, c_white, 1)
+var xx = (window_width - game_width) / 2
+var yy = (window_height - game_height) / 2
+draw_surface_ext(application_surface, xx, yy, 1, 1, 0, c_white, 1)

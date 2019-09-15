@@ -21,7 +21,7 @@ global.menu_level       = 18
 
 // controller objects
 instance_create(o_game)
-instance_create(o_controls)
+
 
 // menu
 var menu_root = ["", menu_type.menu, [

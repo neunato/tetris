@@ -105,17 +105,21 @@ colours = [
 ]
 
 // game mechanics frame durations and the countdown timers used to track them
-delay_freeze = 96
+delay = 0                         // generic delay
+delay_freeze = 96                 // first piece delay
 delay_gravity = undefined         // depends on level, assigned on game start and level ups
-delay_entry = undefined
-delay_clear = 17
+delay_entry = undefined           // delay after locking
+delay_clear = 17                  // line clear delay
+delay_end = (rows - 1) * 4 + 1    // end game curtain animation (4 frames per row)
 delay_shift = [16, 6]             // the piece moves immediately, and again every 6 frames after an initial delay of 16
 delay_softdrop = [3, 2]           // the piece moves every 2 frames after an initial delay of 3
 
+timer = 0                         // frames until generic delay is over
 timer_freeze = 0                  // frames until gravity starts working (first piece only)
 timer_gravity = 0                 // frames until moving down due to gravity
 timer_entry = 0                   // frames until active again before tetromino entry
 timer_clear = 0                   // frames until active again after line clear
+timer_end = 0                     // frames until end game curtain is fully drawn
 timer_shift = 0                   // frames until moving to the side while holding left/right
 timer_softdrop = 0                // frames until moving down while holding down
 

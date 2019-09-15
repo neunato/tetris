@@ -40,7 +40,6 @@ with o_game {
         }
     }
 
-
     // spawn the next piece or trigger line clear animation (which ultimately spawns the next piece)
     var tmp = tetromino_hitboxes[? tetromino]
     var r = player_position[0] + len(tetromino) - 1 - tmp[1]   // row (lowest) tetromino was locked in
